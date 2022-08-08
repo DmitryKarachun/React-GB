@@ -14,4 +14,7 @@ code {
 div {
   font-size: large;
   color: blue;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
