@@ -1,51 +1,61 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import {useRef} from "react";
-
+import PostList from "./components/PostList";
+import MyButton from "./components/UI/button/MyButton";
+import MyInput from "./components/UI/input/MyInput";
+import "./styles/App.css";
 
 function App() {
-  const [timer, setTimer] = useState(0);
-  const [count, setCount] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const ref =useRef(null);
+  const [messageList, setMessageList] = useState([]);
+  const [autor, setAutor] = useState("");
+  const [message, setMessage] = useState("");
 
-
-  const increase = () => {
-    setCount(count + 1);
-  };
-  const decrease = () => {
-    setCount2(count2 - 1);
+  const addNewPost = (e) => {
+    e.preventDefault();
+    const newPost = {
+      id: Date.now(),
+      autor,
+      message,
+    };
+    
+    setMessageList([...messageList, newPost]);
+    setAutor("");
+    setMessage("");
   };
 
   useEffect(() => {
-    console.log('useEffect');
-  }, [count2]);
+    setTimeout(() => {
+      botAnswer(messageList);
+    },1500)
+  }, [messageList]);
 
-  useEffect(()=> {
-    const interval =   setInterval (() => {
-      console.log('timer');
-      setTimer(timer + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  },);
-
-  const handleFocus = () => {
-  ref.current.style.color = 'red';
-    
-  };
+  function botAnswer() {
+    const lastAutor = messageList[messageList.length - 1];
+    if (lastAutor && lastAutor.autor) {
+      setMessageList(prev => [...messageList, {
+        message: `Cообщение автора ${lastAutor.autor} отправлено `    
+      }]);
+    }
+  }
 
   return (
-    <div>
-      <input ref={ref}/>
-      <button onClick={handleFocus}>ref</button>
-      {count}
-      <button onClick={increase}>+</button>  
-      {count2}
-      <button onClick={decrease}>-</button> 
-      {timer}
-
+    <div className="App">
+      <form  className="form">
+        <MyInput
+          value={autor}
+          onChange={(e) => setAutor(e.target.value)}
+          placeholder="Имя"
+        />
+        <MyInput
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Сообщение"
+        />
+        <MyButton onClick={addNewPost}>Отправить</MyButton>
+      </form>
+      <PostList messageList={messageList} />
     </div>
-  )
+  );
 }
 
 export default App;
