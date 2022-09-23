@@ -1,10 +1,25 @@
-import Message from "./message";
+import "./styles/App.css";
+import { Routes, Route } from 'react-router-dom'
+import Layout from "./components/Layout";
+import Homepage from "./pages/Homepage";
+import Profilepage from "./pages/Profilepage";
+import Chatpage from "./pages/Chatpage";
+import Notfoundpage from "./pages/Notfoundpage";
+
 
 function App() {
-  const name ='Dmitry';
+
   return (
-  <Message name={name}/>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Homepage />} />
+        <Route path="profile" element={<Profilepage />} />
+        <Route path="chat" element={<Chatpage />} />
+        <Route path="*" element={<Notfoundpage />} />
+      </Route>
+    </Routes>
+
   )
-}
+};
 
 export default App;
