@@ -1,11 +1,13 @@
+import { Button } from '@mui/material';
 import React from 'react';
-import cl from './MyButton.module.css'
+import SendIcon from '@mui/icons-material/Send';
+
 
 const MyButton = ({children, ...props}) => {
 	return (
-		<button {...props} className={cl.myBtn}>
+		<Button variant="outlined" endIcon={<SendIcon />} {...props} >
 			{children}
-		</button>
+		</Button>
 	);
 };
 

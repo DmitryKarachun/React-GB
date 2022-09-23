@@ -1,9 +1,15 @@
+import { TextField } from '@mui/material';
 import React from 'react';
 import cl from './MyInput.module.css';
 
 const MyInput = ({children, ...props}) => {
 	return (
-		<input type="text" {...props} className={cl.myInput} />
+		<TextField
+			autoFocus='true'
+			margin="normal"
+			color="primary"
+			fullWidth
+			type="text" {...props} />
 	);
 };
 

@@ -5,24 +5,36 @@
 }
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .App {
-  width: 800px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
   margin: 0 auto;
+
 }
 .form {
+  
+  display: flex;
+  flex-direction: column;
 
 }
 .post {
   display: flex;
-  padding: 15px;
-  border: 2px solid teal;
-  margin-top: 15px;
   justify-content: space-between;
   align-items:center;
 
 }
 .post__content {
 
+}
+.chat {
+
+}
+.messageList {
+  display: flex;
+  justify-content: space-between;
 }
