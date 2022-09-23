@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.App {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+
+}
+.form {
+  
+  display: flex;
+  flex-direction: column;
+
+}
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+
+}
+.post__content {
+
+}
+.chat {
+
+}
+.messageList {
+  display: flex;
+  justify-content: space-between;
+}
