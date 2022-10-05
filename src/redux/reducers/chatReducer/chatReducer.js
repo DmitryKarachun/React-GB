@@ -24,9 +24,6 @@ export const chatReducer = (state = initialState, action) => {
 				...state,
 				chats: [...state.chats, action.payload]
 			}
-			
-		
-	
 		default:
 			return state
 		

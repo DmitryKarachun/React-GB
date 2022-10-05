@@ -1,1 +1,1 @@
-export const messageGetSelector = state => state.messages.messages
+export const messageGetSelector = state => state.messages.messages;

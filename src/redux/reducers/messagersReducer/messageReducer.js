@@ -3,12 +3,12 @@ const initialState = {
 		{
 			id:1,
 			title: 'Hello world 1',
-			chatId:2,
+			chatId:1,
 		},
 		{
 			id:2,
 			title: 'Hello world 2',
-			chatId: 1,
+			chatId: 2,
 		},
 	],
 }
